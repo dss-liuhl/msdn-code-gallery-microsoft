@@ -31,8 +31,7 @@ VOID ProxyUsingInjectionMethodDeferredProcedureCall(_In_ KDPC* pDPC,
                                                     _In_opt_ PVOID pArg2);
 
 #if(NTDDI_VERSION >= NTDDI_WIN7)
-
-
+//WIN7,WIN8,WIN10,...
 _IRQL_requires_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Function_class_(KDEFERRED_ROUTINE)
@@ -40,7 +39,7 @@ VOID ProxyByALERedirectDeferredProcedureCall(_In_ KDPC* pDPC,
                                              _In_opt_ PVOID pContext,
                                              _In_opt_ PVOID pArg1,
                                              _In_opt_ PVOID pArg2);
-
+//ALE重定向代理分类处理Classify Callout函数
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
@@ -51,7 +50,7 @@ VOID ClassifyProxyByALERedirect(_In_ const FWPS_INCOMING_VALUES* pClassifyValues
                                 _In_ const FWPS_FILTER* pFilter,
                                 _In_ UINT64 flowContext,
                                 _Inout_ FWPS_CLASSIFY_OUT* pClassifyOut);
-
+//注入代理分类处理Classify Callout函数
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
@@ -64,7 +63,7 @@ VOID ClassifyProxyByInjection(_In_ const FWPS_INCOMING_VALUES* pClassifyValues,
                               _Inout_ FWPS_CLASSIFY_OUT* pClassifyOut);
 
 #else
-
+//WIN7以下
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
